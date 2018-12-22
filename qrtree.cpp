@@ -1,4 +1,5 @@
 /*
+ *  Copyright (c) 2008 Dustin Spicuzza <dustin@virtualroadside.com>
  *  Copyright (c) 2018 Zuoshui Zhou <zuoshui.zhou@gmail.com>
  *
  *  This library is free software; you can redistribute it and/or
