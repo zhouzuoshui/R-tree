@@ -446,10 +446,18 @@ void QRTree::CondenseTree(Leafnode *del){
         else{
 
             // different implements than Destory, one with stack, one with queue, better with queue
-            auto goLeftMost = [&toVisit](Innernode *node){
+            auto goLeftMost = [&](Innernode *node){
                 do{
                     for(auto k = node->child.rbegin(); k != node->child.rend(); ++k)
                         toVisit.push(static_cast<Innernode*>(*k));
+
+                    if(node != _root){
+                        auto x = find(node->parent->child.begin(), node->parent->child.end(), static_cast<QRNode*>(node));
+                        if(x != P->child.end())
+                            node->parent->child.erase(x);
+                    }
+
+                    delete node;
                     // must have child
                     node = (toVisit.top());
                     toVisit.pop();
