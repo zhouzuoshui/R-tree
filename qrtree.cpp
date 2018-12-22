@@ -479,6 +479,8 @@ void QRTree::CondenseTree(Leafnode *del){
                     
                 for(auto n: item->child)
                     Insert(static_cast<Leafnode*>(n), _root);
+                
+                delete item;
      
             };
 
